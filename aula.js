@@ -469,6 +469,75 @@ function Celular(marcaCelular, tamanhoTela, capacidadeBateria) {
 const celular2 = new Celular('asus', 5.5, 5100);
 console.log(celular2);
 
+//Natureza dinânima de objetos 
+
+const mouse = {
+  cor: 'red',
+  marcar: 'dazz'
+}
+mouse.velocidade = 5000;
+mouse.trocarDPI = function () {
+  console.log('mudando DPI');
+}
+delete mouse.velocidade;
+delete mouse.trocarDPI;
+console.log(mouse);
+
+//clonar objetos 
+
+const telefone = {
+  marca: 'Asus',
+  tamanhoDaTela: {
+    vertical: 155,
+    horizontal: 75
+  },
+  ligar: function () {
+    console.log("Fazendo Ligação...");
+  }
+
+}
+
+//const novoCelular = Object.assign({}, telefone);
+// pode colocar novas propriedades dentro
+//desse objeto veja: 
+const novoCelular = Object.assign({
+  bateria: 5000
+}, telefone);
+
+console.log(novoCelular);
+
+const objeto2 = { ...telefone };
+console.log(objeto2);
+
+// math  https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Math/abs
 
 
+// métodos de string
+
+//Tipo primitivo
+const mensagem = 'minha primeira mensagem';
+//tipo objeto
+const outraMensagem = new String('bom dia');
+//https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String
+
+
+//template literal
+
+const mensgem = 'oi isso é a minha\n' +
+  '\'primeira\' mensaem';
+
+// Object{}
+// Boolean true,false
+// string '',""
+// Template `` esse é o brabo
+
+const outra = `Oi isso é a minha
+'segunda'mensagem`;
+
+const email = `Olá
+           obrigado
+           
+           israel`;
+
+//Date 
 
