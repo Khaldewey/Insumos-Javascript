@@ -350,6 +350,125 @@ function somar(limite) {
   return soma;
 }
 
+// Calculando média de notas
+// 0 - 59 F
+// 60 - 69 D
+// 70 - 79 C 
+// 80 - 89 B
+// 90 - 100 A
+
+
+const array = [70, 70, 80];
+
+console.log(mediaDoAluno(array));
+
+function mediaDoAluno(notas) {
+  const media = calcularMedia(notas);
+  if (media < 59) return 'F';
+  if (media < 69) return 'D';
+  if (media < 79) return 'C';
+  if (media < 89) return 'B';
+  return 'A'
+}
+
+function calcularMedia(array) {
+
+  let soman = 0;
+  for (let valor of array) {
+    soman += valor;
+  }
+  return soman / (array.length);
+}
+
+// Criar uma função que exibe a quantidade de * que a linha possui 
+
+exibirAsteriscos(10);
+
+function exibirAsteriscos(linhas) {
+  //let padrao = '';
+  //for(let linha = 1;linha <= linhas;linha++){
+  //   padrao += '*';
+  //   console.log(padrao);
+  //} 
+
+  for (let linha = 1; linha <= linhas; linha++) {
+    let padrao = '';
+    for (let i = 0; i < linha; i++) {
+      padrao += '*';
+    }
+    console.log(padrao);
+  }
+
+}
+
+// Criar função para mostrar numeros primos 
+// primos 
+// compostos
+
+exibirNumerosPrimos(15);
+
+function exibirNumerosPrimos(limite) {
+  for (let i = 1; i < limite; i++) {
+    if (i === 2) console.log(i);
+    if (i === 3) console.log(i);
+    if (i % 2 !== 0 && i % 3 !== 0) console.log(i);
+  }
+
+}
+
+exibirNumeroosPrimos(15);
+
+function exibirNumeroosPrimos(limite) {
+  for (let numero = 2; numero <= limite; numero++) {
+    if (verificaSeEhPrimo(numero)) console.log(numero);
+  }
+}
+
+function verificaSeEhPrimo(numero) {
+
+  for (let divisor = 2; divisor < numero; divisor++) {
+    if (numero % divisor === 0) {
+      return false;
+
+    }
+
+  }
+  return true;
+
+}
+
+
+//factory functions (função de fábrica) esse é massa
+
+function criaCelular(marcaCelular, tamanhoTela, bateria) {
+  return {
+    marcaCelular,
+    tamanhoTela,
+    bateria,
+    ligar: function () {
+      console.log('Ligando ...');
+    }
+  }
+}
+
+const celular1 = criaCelular('Xiaomi', 5.5, 5000);
+console.log(celular1);
+
+//Camel case - umDoisTres
+// Pascal Case - UmDois
+//constructor function 
+
+function Celular(marcaCelular, tamanhoTela, capacidadeBateria) {
+  this.marcaCelular = marcaCelular,
+    this.tamanhoTela = tamanhoTela,
+    this.capacidadeBateria = capacidadeBateria,
+    this.ligar = function () { console.log('Ligação...') }
+
+}
+
+const celular2 = new Celular('asus', 5.5, 5100);
+console.log(celular2);
+
 
 
 
