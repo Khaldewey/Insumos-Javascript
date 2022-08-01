@@ -541,3 +541,187 @@ const email = `Olá
 
 //Date 
 
+const data1 = new Date(); // informações data atual 
+const data2 = new Date(2022, 07, 29, 17, 30);
+
+data2.setFullYear(2090);
+
+// montador de endereço 
+
+let endereco = {
+  rua: 'a',
+  cidade: 'b',
+  cep: 'c'
+};
+
+function exibirEndereco(endereco) {
+  for (let chave in endereco)
+    console.log(chave, endereco[chave]);
+}
+
+exibirEndereco(endereco);
+
+// igualdade de objetos 
+
+function Endereco(rua, cidade, cep) {
+  this.rua = rua,
+    this.cidade = cidade,
+    this.cep = cep
+}
+
+const endereco1 = new Endereco('a', 'b', 'c');
+const endereco2 = new Endereco('a', 'b', 'c');
+const endereco3 = endereco1;
+function saoIguais(endereco1, endereco2) {
+  return endereco1.rua === endereco2.rua &&
+    endereco1.cidade === endereco2.cidade &&
+    endereco1.cep === endereco2.cep
+
+}
+
+
+function temEnderecoMemoriaIguais(endereco1, endereco2) {
+  return endereco1 === endereco2;
+}
+
+console.log(saoIguais(endereco1, endereco2));
+console.log(temEnderecoMemoriaIguais(endereco1, endereco2));
+console.log(temEnderecoMemoriaIguais(endereco1, endereco3));
+
+// objeto postagem de blog 
+
+let postagem = {
+  titulo: 'a',
+  mensagem: 'b',
+  autor: 'c',
+  visualizacoes: 10,
+  comentarios: [
+    { autor: 'a', mensagem: 'b' },
+    { autor: 'a', mensagem: 'b' }     // array de objetos
+  ],
+  estaAoVivo: true
+}
+
+console.log(postagem);
+
+//Arrays 
+// add novos elementos
+// encontrar elementos
+// remover elementos
+// dividir elementos
+// dividir arrays
+// combinar arrays 
+
+// Adicionando elementos no array
+
+const nmeros = [1, 2, 3];
+//inicio
+nmeros.unshift(0);
+console.log(nmeros);
+// meio
+nmeros.splice(1, 0, 'a');
+console.log(nmeros);
+//final
+nmeros.push(5);
+console.log(nmeros);
+
+// Encontrando elemento no array
+// tipo primitivo
+console.log(nmeros.indexOf(2));
+nmeros.splice(5, 0, 1);
+console.log(nmeros);
+console.log(nmeros.lastIndexOf(1));
+console.log(nmeros.indexOf(2) !== -1);
+console.log(nmeros.includes(2));
+
+// Encontrando elemento no array
+// tipo referencia
+
+const marcas = [
+  { id: 1, nome: 'a' },
+  { id: 2, nome: 'b' },
+];
+
+const marca = marcas.find(function (marca) {
+  return marca.nome === 'a';
+})
+
+console.log(marca);
+
+// Arrow functions 
+
+/*const marca = marcas.find((marca) => marca.nome === 'a');
+})*/
+
+
+// Removendo elementos do array 
+
+// final
+const ultimo = nmeros.pop();
+console.log(ultimo);
+// inicio
+const primeiro = nmeros.shift();
+// meio
+const meio = nmeros.splice(2, 1);
+console.log(nmeros);
+
+// Esvaziando um array 
+
+const numerosos = [1, 2, 3, 4, 5, 6];
+
+//solução 1 
+//numeros = [] se for let
+
+// solução 2 
+
+// recomendável
+numerosos.lenght = 0; // apaga ate se estiver em outra variavel
+
+// soluçao 3 
+
+//numerosos.splice(0,numerosos.lenght);
+
+// solução 4 
+
+//while (numerosos.lenght > 0)
+//  numerosos.pop();
+
+
+// Combinando Arrays
+// combinar
+const primeiroo = [1, 2, 3];
+const segundoo = [4, 5, 6];
+
+const combinado = primeiroo.concat(segundoo);
+console.log(combinado);
+
+// dividir
+
+const cortado = combinado.slice(1);
+console.log(cortado);
+
+
+//Operador Spread
+//combinacao de array com es6
+const novaCombinacao = [...primeiroo, 'a', ...segundoo, 'a'];
+console.log(novaCombinacao);
+
+//clonagem de array
+const clonado = [...novaCombinacao];
+console.log(clonado);
+
+// Foreach 
+clonado.forEach((numero, indice) => console.log(numero, indice));
+
+// Combinando string em array
+
+const qualquer = [1, 2, 3];
+
+const combQualquer = qualquer.join('.');
+console.log(combQualquer);
+
+const frase = "acaba a merda do batch";
+const cutFrase = frase.split(' ');
+console.log(cutFrase);
+
+console.log(cutFrase.join('-'));
